@@ -1,0 +1,40 @@
+.userTable{
+    width: 60%;
+    background-color: white;
+    box-shadow: 1px 1px 15px gray;
+    border-radius: 10px;
+    margin: 50px auto;
+    padding: 50px;
+}
+
+.userTable table{
+    width: 100%;
+    margin: 30px;
+}
+
+.userTable table tbody td{
+    padding: 10px;
+    text-align: center;
+}
+
+.addButton{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 400;
+    box-shadow: 1px 1px 15px gray;
+}
+
+.actionButton{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    font-weight: 400;
+    box-shadow: 1px 1px 15px gray;
+    margin: 5px;
+}
