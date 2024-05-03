@@ -6,7 +6,11 @@ import UserRoute from "./Routes/userRoutes.js";
 
 const app  = express();
 app.use(express.json());    //to Read the Json Data
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    credentials: true,
+    methods: ["GET","POST","PUT", "DELETE", "PATCH"],  
+}));
 dotenv.config();
 
 const PORT = process.env.PORT || 8080;

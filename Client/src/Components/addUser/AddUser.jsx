@@ -6,14 +6,17 @@ import { useNavigate } from 'react-router-dom';
 
 export const AddUser = () => {
 
+  const navigate = useNavigate();
+
+
   const users = {
     fname:"",
     lname:"",
     email:"",
-    password:"",
   }
+
+
   const [user,setUser] = useState(users);
-  const navigate = useNavigate();
 
   const inputHandler = (e)=>{
     const {name , value} = e.target;
@@ -28,6 +31,17 @@ export const AddUser = () => {
         navigate("/");      //to navigate the Diffrent route after success
     })
     .catch(error => console.log(error));
+
+    // const fetchdata = fetch("http://localhost:8000/api/create",{
+    //   method:"POST",
+    //   headers:{
+    //     "Content-Type":"application/json"
+    //   },
+    //   body: JSON.stringify({fname:user.fname, lname:user.lname, email:user.email, password:user.password})
+    // }).then((res)=>{
+    //         toast.success("New User has Been Added");
+    //         navigate("/"); 
+    // })
   }
 
 
@@ -65,3 +79,5 @@ export const AddUser = () => {
     </div>
   )
 }
+
+

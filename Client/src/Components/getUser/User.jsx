@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import "./User.css";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export const User = () => {
 
     const[users,setUsers] = useState([]);
+    const {id} = useParams;
 
     useEffect(()=>{
         const fetchData = async ()=>{
@@ -14,6 +16,14 @@ export const User = () => {
         }
         fetchData();
     },[])
+
+    const deleteUser = async(userId)=>{
+        await axios.delete(`http://localhost:8000/api/delete/${userId}`)
+        .then((resposne)=>{
+            setUsers((prevUser)=>prevUser.filter((user)=>user._id != userId))
+            toast.success("User Data Has Been Deleted")
+        })
+    }
 
   return (
     <div className='userTable'>
@@ -31,10 +41,10 @@ export const User = () => {
                         return(
                             <tr key={user._id}>
                                 <td>{index+1}</td>
-                                <td>{user.fname}{user.lname}</td>
+                                <td>{user.fname} {user.lname}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <a className='actionButton' href={"/edit"}>Delete</a>
+                                    <a className='actionButton' onClick={()=>deleteUser(user._id)}>Delete</a>
                                     <Link to={`/edit/`+ user._id} className='actionButton'>Edit</Link>
                                 </td>
                             </tr>
