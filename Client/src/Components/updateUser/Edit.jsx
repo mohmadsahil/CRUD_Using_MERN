@@ -24,7 +24,7 @@ export const Edit = () => {
       useEffect(()=>{
         const fetchData = ()=>{
           try {
-            const response = fetch(`http://localhost:8000/api/getone/${id}`)
+            const response = fetch(`http://localhost:8080/getone/${id}`)
             .then((data)=>{
                return data.json();
             })
@@ -35,7 +35,6 @@ export const Edit = () => {
             console.error('Error fetching data:', error);
           }
         }
-
         fetchData();
 
       },[id])
@@ -43,7 +42,7 @@ export const Edit = () => {
 
       const submitForm = async(e)=>{
         e.preventDefault();
-        await axios.put(`http://localhost:8000/api/update/${id}`,user)
+        await axios.put(`http://localhost:8080/update/${id}`,user)
         .then((response)=>{
             toast.success("User Has Been Updated Successfully");
             navigate("/");      //to navigate the Diffrent route after success

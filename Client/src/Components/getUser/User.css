@@ -37,4 +37,5 @@
     font-weight: 400;
     box-shadow: 1px 1px 15px gray;
     margin: 5px;
+    cursor: pointer;
 }

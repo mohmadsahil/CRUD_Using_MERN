@@ -25,14 +25,14 @@ export const AddUser = () => {
 
   const submitForm = async(e)=>{
     e.preventDefault();
-    await axios.post("http://localhost:8000/api/create",user)
+    await axios.post("http://localhost:8080/create",user)
     .then((response)=>{
         toast.success("New User has Been Added");
         navigate("/");      //to navigate the Diffrent route after success
     })
     .catch(error => console.log(error));
 
-    // const fetchdata = fetch("http://localhost:8000/api/create",{
+    // const fetchdata = fetch("http://localhost:8000/create",{
     //   method:"POST",
     //   headers:{
     //     "Content-Type":"application/json"
@@ -42,6 +42,7 @@ export const AddUser = () => {
     //         toast.success("New User has Been Added");
     //         navigate("/"); 
     // })
+    // fetchdata();
   }
 
 
